@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* Strict Monochrome Theme */
+  --bg-dark: #000000;
+  --bg-card: #000000;
+  --bg-hover: rgba(255, 255, 255, 0.05);
+  
+  --text-main: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.65);
+  
+  --border-color: #FFFFFF;
+  --border-focus: rgba(255, 255, 255, 0.5);
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+  background-image: none; /* Removed grid for strict monochrome flat look, or can keep a subtle one */
+}
+
+/* Typography Classes */
+.font-mono { font-family: var(--font-mono); }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.text-muted { color: var(--text-muted); }
+.text-main { color: var(--text-main); }
+
+a {
+  color: var(--text-main);
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 0; /* Sharp panels */
+}
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-primary {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}
+.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.btn-secondary {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+.btn-secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: #000000;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+.sidebar-nav {
+  padding: 1rem 0;
+  flex: 1;
+  overflow-y: auto;
+}
+.nav-section-title {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  border-left: 2px solid transparent;
+}
+.nav-item:hover, .nav-item.active {
+  background-color: var(--bg-hover);
+  color: var(--text-main);
+}
+.nav-item.active {
+  border-left: 2px solid var(--border-color);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Topbar */
+.topbar {
+  height: 56px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 5;
+}
+
+/* Page Container */
+.page-container {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+.page-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+/* Sharp Panels */
+.panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 0;
+}
+.panel-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+/* Data Tables */
+.data-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+.data-table th, .data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.data-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+.data-table tr:hover td {
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* Monochrome Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-main);
+  border-radius: 0;
+}
+.badge-outline { border: 1px solid var(--border-color); }
+.badge-inverted { background: var(--text-main); color: var(--bg-dark); }
+.badge-muted { color: var(--text-muted); border-color: rgba(255, 255, 255, 0.4); }
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: #000000;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  outline: none;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+  border-radius: 0;
+}
+.input-field:focus {
+  background-color: rgba(255,255,255,0.05);
+}
+.input-field.font-mono {
+  font-family: var(--font-mono);
+}
+select.input-field {
+  appearance: none;
+}
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* Dashboard Metrics */
+.metric-box {
+  border: 1px solid var(--border-color);
+  padding: 1.25rem;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+}
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+.metric-value {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* Terminal Component */
+.terminal-container {
+  background-color: #000000;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-main);
+  overflow-y: auto;
+  height: 100%;
+}
+.terminal-line { margin-bottom: 0.25rem; }
+.terminal-prompt { color: var(--text-main); font-weight: 600; margin-right: 0.5rem; }
+.terminal-input { background: none; border: none; color: inherit; font-family: inherit; font-size: inherit; outline: none; width: 80%; }
+
+/* Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.p-4 { padding: 1rem; }
+
+/* Status Symbols */
+.status-icon {
+  margin-right: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.8); z-index: 9999;
+  display: flex; justify-content: center; align-items: center;
+}
