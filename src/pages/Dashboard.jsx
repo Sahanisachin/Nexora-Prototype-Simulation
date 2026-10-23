@@ -19,6 +19,42 @@ const Dashboard = () => {
         </div>
       </div>
 
+      {/* Central Screening Quick Action Card */}
+      <div className="card" style={{
+        marginBottom: '2rem',
+        padding: '1.5rem 2rem',
+        background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(10, 11, 14, 0.95) 100%)',
+        border: '1.5px solid rgba(6, 182, 212, 0.35)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderRadius: '8px'
+      }}>
+        <div style={{ maxWidth: '700px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+            <span className="badge" style={{ backgroundColor: 'rgba(6, 182, 212, 0.15)', color: 'var(--accent-cyan)', borderColor: 'rgba(6, 182, 212, 0.3)' }}>
+              CORE CAPABILITY
+            </span>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Security Assessment Engine</span>
+          </div>
+          <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            Target Security Screening & Loopholes Assessment
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.5 }}>
+            Upload application binaries, enter website links, or supply GitHub repo reports to run an 11-stage automated simulation with live flowchart tracing, CLI command telemetry, and architecture vulnerability proofs.
+          </p>
+        </div>
+        <div>
+          <a
+            href="/screening"
+            className="btn btn-primary"
+            style={{ padding: '0.75rem 1.75rem', fontSize: '0.9rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+          >
+            Launch Screening Center &rarr;
+          </a>
+        </div>
+      </div>
+
       <div className="grid-4" style={{ marginBottom: '2rem' }}>
         <div className="card stat-card animated-card delay-1">
           <span className="stat-label">Active Scenarios</span>

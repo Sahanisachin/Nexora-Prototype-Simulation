@@ -31,12 +31,12 @@ const Reports = () => {
           </button>
         </div>
       ) : (
-        <div className="card" style={{ backgroundColor: '#fff', color: '#1f2937' }}>
+        <div className="card">
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem', marginBottom: '2rem' }}>
-            <button className="btn btn-secondary" style={{ borderColor: '#d1d5db', color: '#4b5563' }} onClick={() => setShowReport(false)}>
+            <button className="btn btn-secondary" onClick={() => setShowReport(false)}>
               Close
             </button>
-            <button className="btn btn-secondary" style={{ borderColor: '#d1d5db', color: '#4b5563' }} onClick={() => window.print()}>
+            <button className="btn btn-secondary" onClick={() => window.print()}>
               <Printer size={16} /> Print
             </button>
             <button className="btn btn-primary">
@@ -44,42 +44,42 @@ const Reports = () => {
             </button>
           </div>
 
-          <div style={{ padding: '2rem', border: '1px solid #e5e7eb', borderRadius: '0.5rem' }}>
-            <div style={{ textAlign: 'center', marginBottom: '3rem', borderBottom: '2px solid #e5e7eb', paddingBottom: '2rem' }}>
-              <h1 style={{ fontSize: '2rem', color: '#111827', marginBottom: '0.5rem' }}>NEXORA</h1>
-              <h2 style={{ fontSize: '1.25rem', color: '#4b5563', fontWeight: 400 }}>Security Validation Executive Summary</h2>
-              <p style={{ marginTop: '1rem', color: '#6b7280' }}>Generated: {new Date().toLocaleString()}</p>
-              <div style={{ marginTop: '1rem', display: 'inline-block', padding: '0.25rem 0.75rem', backgroundColor: '#fef3c7', color: '#d97706', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 'bold' }}>
+          <div style={{ padding: '2rem', border: '1px solid var(--border-color)', borderRadius: '8px', backgroundColor: 'var(--bg-dark)' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '2rem' }}>
+              <h1 style={{ fontSize: '2rem', color: 'var(--text-main)', marginBottom: '0.5rem', letterSpacing: '2px' }}>NEXORA</h1>
+              <h2 style={{ fontSize: '1.25rem', color: 'var(--text-muted)', fontWeight: 400 }}>Security Validation Executive Summary</h2>
+              <p style={{ marginTop: '1rem', color: 'var(--text-muted)', fontSize: '0.875rem' }}>Generated: {new Date().toLocaleString()}</p>
+              <div style={{ marginTop: '1rem', display: 'inline-block', padding: '0.25rem 0.75rem', backgroundColor: 'rgba(245, 158, 11, 0.15)', color: 'var(--status-warning)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 'bold' }}>
                 SIMULATED DATA
               </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '3rem' }}>
-              <div>
-                <h3 style={{ fontSize: '1.125rem', color: '#111827', borderBottom: '1px solid #e5e7eb', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Metrics Overview</h3>
+              <div style={{ backgroundColor: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                <h3 style={{ fontSize: '1.125rem', color: 'var(--text-main)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Metrics Overview</h3>
                 <ul style={{ listStyle: 'none', padding: 0 }}>
-                  <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                    <span style={{ color: '#4b5563' }}>Total Scenarios Validated:</span>
-                    <strong style={{ color: '#111827' }}>{total}</strong>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Total Scenarios Validated:</span>
+                    <strong style={{ color: 'var(--text-main)' }}>{total}</strong>
                   </li>
-                  <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                    <span style={{ color: '#4b5563' }}>Passed Validations:</span>
-                    <strong style={{ color: '#059669' }}>{passed}</strong>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Passed Validations:</span>
+                    <strong style={{ color: 'var(--status-success)' }}>{passed}</strong>
                   </li>
-                  <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                    <span style={{ color: '#4b5563' }}>Incidents Generated:</span>
-                    <strong style={{ color: '#dc2626' }}>{incidents.length}</strong>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Incidents Generated:</span>
+                    <strong style={{ color: 'var(--status-danger)' }}>{incidents.length}</strong>
                   </li>
-                  <li style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px dashed #e5e7eb' }}>
-                    <span style={{ color: '#4b5563', fontWeight: 'bold' }}>Overall Security Score:</span>
-                    <strong style={{ color: score >= 80 ? '#059669' : '#dc2626', fontSize: '1.25rem' }}>{score}%</strong>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px dashed var(--border-color)' }}>
+                    <span style={{ color: 'var(--text-muted)', fontWeight: 'bold' }}>Overall Security Score:</span>
+                    <strong style={{ color: score >= 80 ? 'var(--status-success)' : 'var(--status-danger)', fontSize: '1.25rem' }}>{score}%</strong>
                   </li>
                 </ul>
               </div>
               
-              <div>
-                <h3 style={{ fontSize: '1.125rem', color: '#111827', borderBottom: '1px solid #e5e7eb', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Executive Summary</h3>
-                <p style={{ color: '#4b5563', fontSize: '0.875rem', lineHeight: 1.6 }}>
+              <div style={{ backgroundColor: 'var(--bg-card)', padding: '1.5rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                <h3 style={{ fontSize: '1.125rem', color: 'var(--text-main)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Executive Summary</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6 }}>
                   This report summarizes the results of the recent security validation simulations. 
                   The simulation tested critical defenses against common MITRE ATT&CK techniques including Credential Access, Discovery, Execution, and Privilege Escalation.
                   <br/><br/>
@@ -88,25 +88,25 @@ const Reports = () => {
               </div>
             </div>
 
-            <h3 style={{ fontSize: '1.125rem', color: '#111827', borderBottom: '1px solid #e5e7eb', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Validation Details</h3>
+            <h3 style={{ fontSize: '1.125rem', color: 'var(--text-main)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Validation Details</h3>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.875rem' }}>
               <thead>
                 <tr>
-                  <th style={{ padding: '0.75rem', backgroundColor: '#f3f4f6', borderBottom: '1px solid #e5e7eb' }}>Scenario</th>
-                  <th style={{ padding: '0.75rem', backgroundColor: '#f3f4f6', borderBottom: '1px solid #e5e7eb' }}>Technique</th>
-                  <th style={{ padding: '0.75rem', backgroundColor: '#f3f4f6', borderBottom: '1px solid #e5e7eb' }}>Result</th>
+                  <th style={{ padding: '0.75rem', backgroundColor: 'var(--bg-card)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Scenario</th>
+                  <th style={{ padding: '0.75rem', backgroundColor: 'var(--bg-card)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Technique</th>
+                  <th style={{ padding: '0.75rem', backgroundColor: 'var(--bg-card)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Result</th>
                 </tr>
               </thead>
               <tbody>
                 {validations.map((v, i) => (
                   <tr key={i}>
-                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #e5e7eb', color: '#111827', fontWeight: 500 }}>{v.scenarioName}</td>
-                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #e5e7eb', color: '#4b5563' }}>{v.technique}</td>
-                    <td style={{ padding: '0.75rem', borderBottom: '1px solid #e5e7eb', color: v.result === 'PASSED' ? '#059669' : '#dc2626', fontWeight: 'bold' }}>{v.result}</td>
+                    <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-main)', fontWeight: 500 }}>{v.scenarioName}</td>
+                    <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>{v.technique}</td>
+                    <td style={{ padding: '0.75rem', borderBottom: '1px solid var(--border-color)', color: v.result === 'PASSED' ? 'var(--status-success)' : 'var(--status-danger)', fontWeight: 'bold' }}>{v.result}</td>
                   </tr>
                 ))}
                 {validations.length === 0 && (
-                  <tr><td colSpan="3" style={{ padding: '1rem', textAlign: 'center', color: '#9ca3af' }}>No validation data available.</td></tr>
+                  <tr><td colSpan="3" style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-muted)' }}>No validation data available.</td></tr>
                 )}
               </tbody>
             </table>
